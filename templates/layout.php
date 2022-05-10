@@ -23,17 +23,17 @@
             <nav class="user-menu">
                 <?php if($is_auth === 1):?>
                     <div class="user-menu__logged">
-                    <p><?= html_sc($user_name); ?></p>
-                    <a class="user-menu__bets" href="pages/my-bets.html">Мои ставки</a>
-                    <a class="user-menu__logout" href="#">Выход</a>
+                        <p><?= html_sc($user_name); ?></p>
+                        <a class="user-menu__bets" href="pages/my-bets.html">Мои ставки</a>
+                        <a class="user-menu__logout" href="#">Выход</a>
                     </div>
                 <?php else :?>
                     <ul class="user-menu__list">
                         <li class="user-menu__item">
-                            <a href="#">Регистрация</a>
+                            <a href="sign-up.php">Регистрация</a>
                         </li>
                         <li class="user-menu__item">
-                            <a href="#">Вход</a>
+                            <a href="login.php">Вход</a>
                         </li>
                     </ul>
                 <?php endif;?>
@@ -47,13 +47,13 @@
 <footer class="main-footer">
     <nav class="nav">
         <ul class="nav__list container">
-            <?php foreach($categories as $category => $value): ?>
+        <?php foreach($categories as $category => $value): ?>
             <li class="nav__item">
                 <a href="pages/all-lots.html">
                     <?= html_sc($value["title"])?>
                 </a>
             </li>
-            <?php endforeach; ?>
+        <?php endforeach; ?>
         </ul>
     </nav>
     <div class="main-footer__bottom container">
@@ -61,6 +61,7 @@
             <p>© 2019, YetiCave</p>
             <p>Интернет-аукцион сноубордического и горнолыжного снаряжения</p>
         </div>
+
         <div class="main-footer__social social">
             <span class="visually-hidden">Мы в соцсетях:</span>
             <a class="social__link social__link--facebook" href="#">

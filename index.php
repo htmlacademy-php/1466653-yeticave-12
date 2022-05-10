@@ -8,6 +8,7 @@ $content = include_template("main.php", [
     "categories" => $categories,
     "products" => $products
 ]);
+
 $layout_content = include_template("layout.php", [
     "is_auth" => $is_auth,
     "user_name" => $user_name,

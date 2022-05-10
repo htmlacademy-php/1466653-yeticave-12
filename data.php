@@ -85,3 +85,31 @@ function insertNewProduct($name, $description, $img, $date_expire, $price, $bid_
     $id = $db->insert_id;
     return $id;
 };
+
+/* ----- Получить список email пользователей ----- */
+function getUserId($email, $db) {
+    $sql = "
+    SELECT id FROM users WHERE email=?;
+    ";
+
+    $stmt = $db->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $data = $result->fetch_assoc();
+    return $data;
+};
+
+/* ----- Сохранить данные о новом пользователе в БД ----- */
+function insertNewUser($email, $password, $name, $message, $db) {
+    $sql = "
+    INSERT INTO users (email, password, name, contacts)
+    VALUES (?, ?, ?, ?);
+    ";
+
+    $stmt = $db->prepare($sql);
+    $stmt->bind_param("ssss", $email, $password, $name, $message);
+    $stmt->execute();
+    $id = $db->insert_id;
+    return $id;
+}
